@@ -28,6 +28,13 @@ jobs :
         with:
           path: dist
           if-no-files-found: error
+      - name: Setup EAS
+        uses: expo/expo-github-action@v8
+        with:
+          eas-version: latest
+          token: ${{secrets.EXPO_TOKEN}}
+      - name: Build App
+        run: eas build --platform android --non-interative --no-wait
   deploy:
     environment:
       name: Github-pages
@@ -41,4 +48,3 @@ jobs :
       - name: Deploy to Github Pages
         id: deployment
         uses: actions/deploy-pages@v2
-        
