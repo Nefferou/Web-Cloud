@@ -1,5 +1,8 @@
 {
   "expo": {
+    "experiment": {
+      "baseUrl": "/Web-Cloud"
+    },
     "name": "web-cloud-ynov",
     "slug": "web-cloud-ynov",
     "version": "1.0.0",
