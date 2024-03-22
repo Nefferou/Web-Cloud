@@ -21,15 +21,17 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
+      - name: 📦 Install dependencies
+        run: npm install
+
+      - name: Build web app
+        run: npm run predeploy
+
       - name: 🏗 Setup EAS
         uses: expo/expo-github-action@v8
         with:
           eas-version: latest
           token: ${{ secrets.EXPO_TOKEN }}
-
-      - name: 📦 Install dependencies
-        run: npm install
-
 
       - name: 🚀 Build app
         run: eas build --platform android --non-interactive --no-wait
@@ -38,9 +40,6 @@ jobs:
         id: pages
         uses: actions/configure-pages@v3
 
-      - name: Build web app
-        run: npm run predeploy
-        
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
