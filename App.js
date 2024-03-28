@@ -104,12 +104,6 @@ export default function App() {
             visibilityTime: 3000,
             autoHide: true,
           });
-          grecaptcha.reset(window.recaptchaWidgetId);
-
-          // Or, if you haven't stored the widget ID:
-          window.recaptchaVerifier.render().then(function (widgetId) {
-            grecaptcha.reset(widgetId);
-          });
         });
     }
   }
