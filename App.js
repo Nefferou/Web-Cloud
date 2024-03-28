@@ -90,12 +90,16 @@ export default function App() {
       });
     } else {
       let appVerifier = window.recaptchaVerifier;
+      console.log(appVerifier);
+      console.log(phone);
       signInPhoneNumber(phone, appVerifier)
         .then((confirmationResult) => {
           window.confirmationResult = confirmationResult;
-          const code = getCodeFromUserInput();
+          let code = getCodeFromUserInput();
+          console.log(code)
           confirmationResult.confirm(code).then((result) => {
             const user = result.user;
+            console.log(user)
             Toast.show({
               type: 'info',
               text1: 'Valide Account',
@@ -103,6 +107,12 @@ export default function App() {
               autoHide: true,
             });
           }).catch((error) => {
+            Toast.show({
+              type: 'info',
+              text1: error.code + " : " +error.message,
+              visibilityTime: 3000,
+              autoHide: true,
+            });
           });
         }).catch((error) => {
           Toast.show({
@@ -122,6 +132,7 @@ export default function App() {
 
       const user = result.user
       console.log("signin success with github");
+      console.log(token);
       Toast.show({
         type: 'info',
         text1: 'Github Account',
