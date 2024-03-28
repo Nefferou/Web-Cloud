@@ -150,6 +150,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+    margin: auto,
   },
   input: {
     height: 40,
