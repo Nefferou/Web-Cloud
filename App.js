@@ -1,4 +1,4 @@
-import { StatusBar } from 'expo-status-bar';
+import React from 'react';
 import { StyleSheet, Text, TextInput, Button, View } from 'react-native';
 import {signup} from "./auth_signup_password";
 
@@ -6,18 +6,17 @@ export default function App() {
   const [email, onChangeEmail] = React.useState("");
   const [password, onChangePassword] = React.useState("");
   return (
-    <View style={styles.container}>
+    <View>
       <Text>Email</Text>
       <TextInput
-      style={style.input}
       onChangeText={onChangeEmail}
       value={email}>
+      </TextInput>
       <Text>Password</Text>
       <TextInput
-      style={style.input}
       onChangeText={onChangePassword}
       value={password}
-      secureTextEntry={true}></TextInput>
+      secureTextEntry={true}>
       </TextInput>
       <Button title="Signup !" onPress={() => signup(email, password)} />
     </View>
