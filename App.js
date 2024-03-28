@@ -5,6 +5,7 @@ import { signin } from "./firebase/auth_signin_password";
 import { signInPhoneNumber } from "./firebase/auth_phone_signin";
 import { signinWithGithub } from './firebase/auth_github_signin_popup';
 import Toast from 'react-native-toast-message';
+import { GithubAuthProvider } from "firebase/auth";
 
 export default function App() {
   const [email, onChangeEmail] = React.useState("");
