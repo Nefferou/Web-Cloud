@@ -3,6 +3,7 @@ import { StyleSheet, Text, TextInput, Button, View } from 'react-native';
 import { signup } from "./firebase/auth_signup_password";
 import { signin } from "./firebase/auth_signin_password";
 import { signInPhoneNumber } from "./firebase/auth_phone_signin";
+import { signinWithGithub } from './firebase/auth_github_signin_popup';
 import Toast from 'react-native-toast-message';
 
 export default function App() {
@@ -94,7 +95,12 @@ export default function App() {
           const code = getCodeFromUserInput();
           confirmationResult.confirm(code).then((result) => {
             const user = result.user;
-
+            Toast.show({
+              type: 'info',
+              text1: 'Valide Account',
+              visibilityTime: 3000,
+              autoHide: true,
+            });
           }).catch((error) => {
           });
         }).catch((error) => {
@@ -106,6 +112,33 @@ export default function App() {
           });
         });
     }
+  }
+
+  const githubConnection = () => {
+    signinWithGithub().then((result) => {
+      const credential = GithubAuthProvider.credentialFromResult(result);
+      const token = credential.accessToken;
+
+      const user = result.user
+      console.log("signin success with github");
+      Toast.show({
+        type: 'info',
+        text1: 'Github Account',
+        visibilityTime: 3000,
+        autoHide: true,
+      });
+  })
+  .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log(error);
+          Toast.show({
+            type: 'error',
+            text1: errorCode + " : " + errorMessage,
+            visibilityTime: 3000,
+            autoHide: true,
+          });
+  })
   }
 
   return (
@@ -134,6 +167,7 @@ export default function App() {
       <Button title="Signup !" id="signup" onPress={() => CreateAccount(email, password)} />
       <Button title="Phone Sign" id="phone-sign" onPress={() => phoneConnection(phone)} />
       <Button title="Signin !" id="signin" onPress={() => ValideAccount(email, password)} />
+      <Button title="Github Signin !" id="github-signin" onPress={() => githubConnection()} />
       <Toast ref={(ref) => Toast.setRef(ref)} />
     </View>
   );
