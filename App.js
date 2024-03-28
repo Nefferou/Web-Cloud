@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, TextInput, Button, View } from 'react-native';
 import {signup} from "./auth_signup_password";
+import {signin} from "./auth_signin_password";
 
 export default function App() {
   const [email, onChangeEmail] = React.useState("");
@@ -19,6 +20,7 @@ export default function App() {
       secureTextEntry={true}>
       </TextInput>
       <Button title="Signup !" onPress={() => signup(email, password)} />
+      <Button title="Signin !" onPress={() => signin(email, password)} />
     </View>
   );
 }
