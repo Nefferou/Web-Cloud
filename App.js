@@ -89,10 +89,8 @@ export default function App() {
         autoHide: true,
       });
     } else {
-      let appVerifier = window.recaptchaVerifier;
-      console.log(appVerifier);
       console.log(phone);
-      signInPhoneNumber(phone, appVerifier)
+      signInPhoneNumber(phone)
         .then((confirmationResult) => {
           window.confirmationResult = confirmationResult;
           let code = getCodeFromUserInput();
