@@ -115,7 +115,7 @@ export default function App() {
   }
 
   return (
-    <View>
+    <View style={styles.container}>
       <Text>Email</Text>
       <TextInput
         style={styles.input}
@@ -150,7 +150,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-    margin: auto,
   },
   input: {
     height: 40,
