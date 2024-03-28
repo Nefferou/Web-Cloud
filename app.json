@@ -1,6 +1,6 @@
 {
   "expo": {
-    "experiment": {
+    "experiments": {
       "baseUrl": "/web-cloud-ynov"
     },
     "name": "web-cloud-ynov",
