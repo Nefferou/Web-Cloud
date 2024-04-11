@@ -3,6 +3,7 @@
     "experiments": {
       "baseUrl": "/web-cloud-ynov"
     },
+    "scheme": "web-cloud-ynov",
     "name": "web-cloud-ynov",
     "slug": "web-cloud-ynov",
     "version": "1.0.0",
@@ -28,12 +29,17 @@
       "package": "com.julien.frtlt.webcloudynov"
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro",
+      "output": "static"
     },
     "extra": {
       "eas": {
         "projectId": "d5b6f43c-42ae-49a1-9290-af93e08be4b6"
       }
-    }
+    },
+    "plugins": [
+      "expo-router"
+    ]
   }
 }
