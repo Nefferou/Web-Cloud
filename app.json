@@ -26,26 +26,20 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.julien.frtlt.webcloudynov"
+      "package": "com.albarea.webcloudynov"
     },
     "web": {
-      "favicon": "./assets/favicon.png",
       "bundler": "metro",
-      "output": "static"
+      "output": "static",
+      "favicon": "./assets/favicon.png"
     },
     "extra": {
       "eas": {
-        "projectId": "d5b6f43c-42ae-49a1-9290-af93e08be4b6"
+        "projectId": "6de534ca-ca26-4f92-a4a1-38220e1f570f"
       }
     },
     "plugins": [
       "expo-router"
-      [
-        "expo-image-picker",
-        {
-          "photoPermission":"The app accesses your photos to let you share them with your friends."
-        }
-      ]
     ]
   }
 }
